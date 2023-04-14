@@ -1,0 +1,44 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    background-color: green;
+}
+
+.heading {
+    background-color: rgba(30, 30, 30, .9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+}
+
+.heading>p {
+    font-size: 4rem;
+}
+.content{
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+}
+form{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.card{
+    height: 300px;
+    width: 300px;
+    background-color: teal;
+    align-self: center;
+    margin-top: 200px;
+}
