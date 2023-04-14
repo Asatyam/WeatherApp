@@ -40,7 +40,7 @@ function createCard() {
   const cardDiv = document.createElement('div');
   cardDiv.setAttribute('class', 'card');
   const cityPara = document.createElement('p');
-  cityPara.className = 'city';
+  cityPara.className = 'city city-name';
   const tempPara = document.createElement('p');
   tempPara.className = 'temp';
   const feelsPara = document.createElement('p');
@@ -75,10 +75,10 @@ async function displayCard(weather) {
   const humidity = document.querySelector('.humidity');
   const wind = document.querySelector('.wind');
   city.textContent = weatherData.location.name.toUpperCase();
-  temp.textContent = weatherData.current.temp_c;
-  feels.textContent = weatherData.current.feelslike_c;
-  humidity.textContent = weatherData.current.humidity;
-  wind.textContent = weatherData.current.wind_kph;
+  temp.textContent = `Temperature: ${weatherData.current.temp_c} ºC`;
+  feels.textContent = `Feels like: ${weatherData.current.feelslike_c} ºC`;
+  humidity.textContent = `Humidity: ${weatherData.current.humidity}%`;
+  wind.textContent = `Wind: ${weatherData.current.wind_kph} kph`;
 }
 
 async function searchLocation() {
