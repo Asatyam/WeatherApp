@@ -8,7 +8,8 @@
     min-height: 100svh;
     display: grid;
     grid-template-rows: 100px 1fr;
-    background-color: lightcoral;
+    background: url('./images/day.jpg');
+    background-size: 100% 100%;
 }
 
 .heading {
@@ -69,8 +70,8 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .card{
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
     background-color: black;
     align-self: center;
     margin-top: 200px;
@@ -91,4 +92,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .city.city-name{
     font-size:3rem;
     color: #2113f4 ;
+}
+.main.night{
+    background-image: url('./images/night.jpg');
 }

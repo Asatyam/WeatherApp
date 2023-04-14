@@ -69,6 +69,13 @@ async function getWeatherData(location) {
 }
 async function displayCard(weather) {
   const weatherData = weather || (await getWeatherData('London'));
+  const isDay = weatherData.current.is_day;
+  console.log(isDay);
+  if (!isDay) {
+    main.classList.add('night');
+  } else {
+    main.classList.remove('night');
+  }
   const city = document.querySelector('.city');
   const temp = document.querySelector('.temp');
   const feels = document.querySelector('.feels');
@@ -81,16 +88,22 @@ async function displayCard(weather) {
   wind.textContent = `Wind: ${weatherData.current.wind_kph} kph`;
 }
 
+async function displayWeather(e) {
+  const search = document.querySelector('.search');
+  e.preventDefault();
+  const location = search.value.toLowerCase();
+  const weatherData = await getWeatherData(location);
+  if (weatherData.error) {
+    // eslint-disable-next-line no-alert
+    alert('Enter a valid location');
+    return;
+  }
+  displayCard(weatherData);
+}
+
 async function searchLocation() {
   const form = document.querySelector('form');
-  const search = document.querySelector('.search');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const location = search.value.toLowerCase();
-    const weatherData = await getWeatherData(location);
-    displayCard(weatherData);
-  });
+  form.addEventListener('submit', displayWeather);
 }
 
 createHeading();
