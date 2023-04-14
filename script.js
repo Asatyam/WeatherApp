@@ -42,6 +42,24 @@ function createCard() {
   const content = document.querySelector('.content');
   content.appendChild(cardDiv);
 }
+async function getWeatherData(location) {
+  const forecast = await fetch(
+    // eslint-disable-next-line comma-dangle
+    `https://api.weatherapi.com/v1/current.json?key=469b2f87163341f88fc112429231404&q=${location}`
+  );
+  const weatherData = await forecast.json();
+  console.table(weatherData);
+}
+async function searchLocation() {
+  const form = document.querySelector('form');
+  const search = document.querySelector('.search');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const location = search.value.toLowerCase();
+    getWeatherData(location);
+  });
+}
 
 createHeading();
 createContent();
@@ -49,4 +67,5 @@ createForm();
 createSearchBar();
 createSearchBtn();
 createCard();
-
+getWeatherData();
+searchLocation();
