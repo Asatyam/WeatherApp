@@ -41,4 +41,14 @@ form{
     background-color: teal;
     align-self: center;
     margin-top: 200px;
+    display: grid;
+    grid-template-rows: 80px repeat(4,1fr);
+    box-shadow: 0px 0px 3px 2px #030405;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding:20px;
+}
+.city{
+    font-size:3rem;
+    color: white;
 }
